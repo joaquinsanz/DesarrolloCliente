@@ -1,0 +1,23 @@
+
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function comprueba(){
+        var patt =/^(50)[0-9]{3}$/;
+        var tuCode = document.formulario.code.value;
+        var tuCode = tuCode.toString();
+        var respuesta = patt.test(tuCode);
+        alert("resultado: " + respuesta);
+
+      }
+    </script>
+    <form action="#" name="formulario">
+    <p align="center"><input type="text" name="code" size="30" /> Escribe un codigo postal</p><br/>
+    <p align="center"><input type="button" onclick="comprueba()" value="Comprobar" /></p>
+    </form>
+  </body>
+  </html>

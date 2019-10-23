@@ -1,0 +1,23 @@
+
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function comprueba(){
+        var patt =/^(\+34|0034|34)?[6|7|8|9][0-9]{8}$/;
+        var tuTel = document.formulario.telefono.value;
+        var tuTel = tuTel.toString();
+        var respuesta = patt.test(tuTel);
+        alert("resultado: " + respuesta);
+
+      }
+    </script>
+    <form action="#" name="formulario">
+    <p align="center"><input type="text" name="telefono" size="30" /> Escribe un telefono</p><br/>
+    <p align="center"><input type="button" onclick="comprueba()" value="Comprobar" /></p>
+    </form>
+  </body>
+  </html>

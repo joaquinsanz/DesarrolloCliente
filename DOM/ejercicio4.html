@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Ejercicio DOM</title>
+        <script type="text/javascript">
+            
+
+            function agregarFila(){
+                var nombre = prompt('Inserta el nombre de la flor');
+                var ubicacion = prompt('Cual es la ubicación');
+                var ejemplares = prompt('Cuantos ejemplares tiene');
+                var flor = prompt('Que flor tiene');
+                document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+nombre+'</td>'+'<td>'+ubicacion+'</td>'+'<td>'+ejemplares+'</td>'+'<td>'+flor+'</td>';
+            }
+
+            function eliminarFila(){
+                var table = document.getElementById("tablaprueba");
+                var rowCount = table.rows.length;
+              
+                
+                if(rowCount <= 1)
+                  alert('No se puede eliminar el encabezado');
+                else
+                  table.deleteRow(rowCount -1);
+              }
+              
+        </script>
+    </head>
+    <body>
+        <table border="1" class="table" id="tablaprueba">
+            <tr>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Ejemplares</th>
+            <th>Flor</th>
+            </tr>
+        </table>
+        <br>
+        <input type="button" value="Insertar fila" onclick="agregarFila();">
+        <br>
+        <br>
+        <input type="button" value="Borrar última fila" onclick="eliminarFila();">
+    </body>
+</html>

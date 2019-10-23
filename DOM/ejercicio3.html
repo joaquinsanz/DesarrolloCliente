@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Ejercicio DOM</title>
+<script type="text/javascript">
+function insertar() {
+    document.getElementById("lista").innerHTML += "<li> Elemento </li>"
+}
+</script>
+</head>
+<body>
+<ul id="lista">
+<li>Elmento 1</li>
+<li>Elmento 2</li>
+<li>Elmento 3</li>
+<li>Elmento 4</li>
+</ul>
+<input type="button" value="Insertar elemento" onclick="insertar();">
+</body>
+</html>
