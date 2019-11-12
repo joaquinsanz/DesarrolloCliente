@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function enviar(){
+            var f =document.forms["f1"];
+            document.write(f.elements["nombre"].value + "<br>");
+            document.write(f.elements["artista"].value + "<br>");
+            document.write(f.elements["date"].value + "<br>");
+
+            var ch=f.getElementsByTagName("input");
+            for(var i=0; i < ch.length; i ++){
+                if(ch[i].type=="checkbox"){
+                    if(ch[i].checked){
+                        document.write(ch[i].name + " " + "marcado" + "<br>");
+
+                    }else{
+                        document.write(ch[i].name + " " + "desmarcado" + "<br>");
+                    }
+                }
+            }
+            document.write(f.elements["prestado"].value + "<br>");
+        }
+        
+    </script>
+    <form id="f1">
+        <h3>Nombre del disco:</h3>
+        <input type="text" id="nombre">
+        <br>
+        <h3>Grupo de musica o cantante:</h3>
+        <input type="text" id="artista">
+        <br>
+        <h3>Fecha de publicacion</h3>
+        <input type="date" id="date">
+        <br>
+        <h3>Tipo de música</h3>
+        <label><input type="checkbox" name="rock" id="rock">rock</label>
+        <label><input type="checkbox" name="pop" id="pop">pop</label>
+        <label><input type="checkbox" name="punk" id="punk">punk</label>
+        <label><input type="checkbox" name="indie" id="indie">indie</label>
+        <br>
+        <h3>Prestado:</h3>
+        <input type="radio" name="prestado" id="prestado" value="si">SI
+        <input type="radio" name="prestado" id="prestado" value="no">NO
+        <br>
+        <br>
+        <button type="button" onclick="enviar()">  Enviar </button>
+        
+    </form>
+</body>
+</html>

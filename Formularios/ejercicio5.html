@@ -1,0 +1,51 @@
+<html> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Ejericico 5</title>
+        <script>
+            function cambiarFondo(){
+                cajaSource.style.backgroundColor = '#FFFFFF';
+            }
+            function mostrarSource(){
+                cajaSource.innerHTML = this.src;
+            }
+            function ocultarSource(){
+                cajaSource.innerHTML = 'Pasa sobre una imagen';
+            }
+            function mostrarCoordenadas(e){
+                alert(e.pageX + " " + e.pageY);
+            }
+            function escucharEvento(e){
+                switch(e.type){
+                    case 'keydown':
+                        document.body.style.backgroundColor = '#CCE6FF';
+                        break;
+                    case 'mouseover':
+                        document.body.style.backgroundColor = "red";
+                        break
+                }
+            }
+            function agregarEvento(){
+                cajaSource.onclick = cambiarFondo;
+                window.onkeydown = escucharEvento;
+                window.onmouseover = escucharEvento;
+                var images = document.getElementsByTagName('img');
+                for (x of images){
+                    x.addEventListener('mouseover', mostrarSource);
+                    x.addEventListener('mouseout', ocultarSource);
+                    x.addEventListener('click', mostrarCoordenadas);
+                }
+            }
+            window.onload = agregarEvento;
+        </script>
+    </head> 
+    <body> 
+        <div id="cajaSource">Pasa sobre una imagen</div> 
+        <div>
+             <img src="imagen1.jpg" />
+        </div>      
+        <div> 
+            <img src="imagen2.jpg"/>
+        </div> 
+    </body> 
+</html>

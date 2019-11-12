@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cambiar imagen</title>
+    <script>
+        function mostrarOculta(){
+            imagen.src = 'imagen2.jpg';
+        }
+        function mostrarOriginal(){
+            imagen.src = 'imagen1.jpg';
+        }
+        function preparar(){
+            imagen.addEventListener('mousedown', mostrarOculta, false);
+            imagen.addEventListener('mouseup', mostrarOriginal, false);
+        }
+        window.onload=preparar;
+    </script>
+</head>
+<body>
+    <div id="cajaImagen">
+        <img id="imagen" src="imagen1.jpg"/>
+    </div>
+</body>
+</html>

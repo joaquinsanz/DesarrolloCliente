@@ -1,0 +1,29 @@
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>Ejercicio 1</title> 
+        <script type="text/javascript">
+            function muestraOculta(id) {
+                var elem = document.getElementById(id);
+
+                if( elem.style.display == '') {
+                    elem.style.display = 'none' ;
+                } 
+                else{
+                    elem.style.display = '';
+                }
+            }
+        </script> 
+    </head> 
+    <body> 
+        <p id="contenidos_1">a</p> 
+        <a id="enlace_1" href="#" onclick="muestraOculta('contenidos_1')">Ocultar contenidos</a>
+        <br/> 
+        <p id="contenidos_2">b</p> 
+        <a id="enlace_2" href="#" onclick="muestraOculta('contenidos_2')">Ocultar contenidos</a> 
+        <br/>
+        <p id="contenidos_3">c</p>
+        <a id="enlace_3" href="#" onclick="muestraOculta('contenidos_3')">Ocultar contenidos</a> 
+    
+    </body> 
+</html>

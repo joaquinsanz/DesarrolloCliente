@@ -1,0 +1,45 @@
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>Ejercicio 3</title> 
+        <script type="text/javascript">
+            
+            window.onload = function(){
+                document.getElementById('enlace_1').onclick = function(){
+                    muestraOculta('contenidos_1', 'enlace_1');
+                }
+                document.getElementById('enlace_2').onclick = function(){
+                    muestraOculta('contenidos_2', 'enlace_2');
+                }
+                    document.getElementById('enlace_3').onclick = function(){
+                    muestraOculta('contenidos_3', 'enlace_3');
+                }
+            }
+            
+            function muestraOculta(nomElement, nomEnlace) {
+                var elem = document.getElementById(nomElement);
+                var enlace = document.getElementById(nomEnlace);
+                if( elem.style.display == '' || elem.style.display == 'block') {
+                    elem.style.display = 'none' ;
+                    enlace.innerHTML = 'Mostrar Contenido';
+                } 
+                else{
+                    elem.style.display = '';
+                    enlace.innerHTML = 'Ocultar Contenido';
+                }
+            } 
+         
+        </script> 
+    </head> 
+    <body> 
+        <p id="contenidos_1">a</p> 
+        <a id="enlace_1" href="#">Ocultar contenidos</a>
+        <br/> 
+        <p id="contenidos_2">b</p> 
+        <a id="enlace_2" href="#">Ocultar contenidos</a> 
+        <br/>
+        <p id="contenidos_3">c</p>
+        <a id="enlace_3" href="#">Ocultar contenidos</a> 
+    
+    </body> 
+</html>

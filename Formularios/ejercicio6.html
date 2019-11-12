@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 6</title>
+        <style type="text/css">
+            body {margin:0px;}
+            div{
+            float:left;
+            }
+            #contenedor {position:absolute; width:100%;height:100%;}
+            #rojo {background-color: red; width:50%; height:50%;}
+            #verde {background-color: green; width:50%; height:50%;}
+            #amarillo {background-color: yellow; width:50%; height:50%;}
+            #azul {background-color: blue; width:50%; height:50%; }
+        </style>
+        <script type="text/javascript">
+            function informacion(elEvento){
+                var evento = elEvento || window.event;
+                var coordenadaX = evento.clientX;
+                var coordenadaY = evento.clientY;
+                var dimensiones = tamanoVentanaNavegador();
+                var tamanoX = dimensiones[0];
+                var tamanoY = dimensiones[1];
+
+                var posicionHorizontal = 'derecha';
+                var posicionVertical = 'izquierda';
+
+                if(coordenadaX > tamanoX/2){
+                    posicionHorizontal = 'derecha';
+                } else{
+                    posicionHorizontal = 'izquierda'; 
+                }
+                if(coordenadaY > tamanoY/2){
+                    posicionVertical = 'abajo';
+                } else{
+                    posicionVertical = 'arriba'; 
+                }
+                if(posicionHorizontal == 'izquierda' && posicionVertical == 'arriba'){
+                    alert("rojo");
+                } else if(posicionHorizontal == 'derecha' && posicionVertical == 'arriba'){
+                    alert("verde");
+                } else if(posicionHorizontal == 'izquierda' && posicionVertical == 'abajo'){
+                    alert("amarillo");
+                } else{
+                    alert("azul");
+                }
+
+            }
+            function tamanoVentanaNavegador(){
+                if(typeof(window.innerWidth)=='number'){
+                    dimensiones = [window.innerWidth, window.innerHeight];
+                }else if(document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)){
+                    dimensiones = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+                } else if (document.body && (document.body.clientWidth || document.body.clientHeight)){
+                    dimensiones = [document.body.clientWidth, document.body.clientHeight];
+                }
+                return dimensiones;
+            }
+            document.onclick = informacion;
+        </script>
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="rojo"></div>
+            <div id="verde"></div>
+            <div id="amarillo"></div>
+            <div id="azul"></div>
+        </div>
+    </body>
+</html>
