@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="stylesheet"  href="css/main.css">
+<script>
+  
+var obj;
+var obj_filtrado;
+window.onload = function(){
+    cargarAjax();
+}
+
+/* PASO 1: Carga en la variable global obj el contenido del json*/
+function cargarAjax(){
+    
+	
+	
+	
+	
+	
+}
+
+/*
+* PASO 2: Utilizando el dom, por cada cupcake crea:
+* un div
+* una imagen
+* un parrafo con su nombre
+* un parrafo con su precio
+* un listado de categorias
+* un parrafo con su descripción
+* un parrafo con las etiquetas
+*/
+function pintar(bol=false){
+    if(!bol){
+        obj_filtrado=obj.cupcakes;
+    }
+    
+    let contenedor = document.getElementById('contenedor');
+    contenedor.innerHTML='';
+   
+   
+   
+   
+   
+}
+
+/*
+* PASO 3: 
+* Inserta en arrCategorias cada una de las categorias (solo una vez por categoria)
+* Inserta en mapEtiquetas cada una de las etiquetas, por cada etiqueta guarda el número de veces que aparece
+*/
+function cargarCatYEtiquetas(){
+    
+    let selCategorias=document.getElementById('seleccion_categorias');
+    let etiquetas=document.getElementById('etiquetas');
+    let arrCategorias=[];
+    let mapEtiquetas = new Map();
+    let c='';
+    
+	
+	
+	
+	
+	
+	
+    //llenamos el option
+    for(a of arrCategorias){
+            c+="<option value='"+a+"'>"+a+"</option>"
+    }
+    document.getElementById('seleccion_categorias').innerHTML += c
+    //llenamos las etiquetas con su h en función de las repeticiones.
+    for([k,v] of mapEtiquetas){
+        let x=7-Math.max(1,Math.round(6*v/max))
+        etiquetas.innerHTML+="<h"+x+" class='etiqueta'>"+ k +"</h"+x+"> "
+    }  
+  
+	selCategorias.addEventListener("change", filtrarCategorias);
+	etiquetas.addEventListener("click", filtrarEtiqueta);
+}
+
+
+/*
+* PASO 4: Añadir la función de búsqueda
+*/
+function filtrarEtiqueta(e){
+	if(e.target.classList.contains('etiqueta')){
+        let mapEtiquetas = e.target.innerHTML;
+        obj_filtrado=obj.cupcakes.filter();
+		pintar(true);           
+    }
+}
+
+/*
+* PASO 5: Añadir la función de búsqueda
+*/
+function filtrarCategorias(){
+    let cat = this.value;
+    obj_filtrado=obj.cupcakes
+    if(cat != 'TODAS'){
+        obj_filtrado=obj_filtrado.filter()
+    }
+    pintar(true);
+}
+
+</script>
+  
+  
+</head>
+    
+<body>
+    <select id="seleccion_categorias">
+        <option value="TODAS">TODAS</option>
+        </select>    
+        
+	<div id="container">
+		<div id="contenedor"></div> 
+		<div id="etiquetas"></div>
+	</div>
+    
+</body>
+</html>

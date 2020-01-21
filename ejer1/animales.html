@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th,
+            td {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="texto">
+            <h1>Animales</h1>
+            <button id="cargaCatalogo">carga catalogo</button>
+        </div>
+        <br/>
+        <table id="demo"></table>
+
+        <script>
+            document
+                .getElementById("cargaCatalogo")
+                .addEventListener("click", cargarCatalogo);
+            function cargarCatalogo() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        cargarXML(this);
+                    }
+                };
+                xhr.open("GET", "animales.xml", true);
+                xhr.send();
+            }
+            function cargarXML(xml) {
+                var docXML = xml.responseXML;
+                var tabla =
+                    "<tr><th> Nombre: </th><th> Especie: </th><th> Patas: </th></tr>";
+                var animal = docXML.getElementsByTagName("animal");
+                for (var i = 0; i < animal.length; i++) {
+                    tabla += "<tr><td>";
+                    tabla += animal[i].getElementsByTagName("nombre")[0]
+                        .textContent;
+                    tabla += "</td><td>";
+                    tabla += animal[i].getElementsByTagName("especie")[0]
+                        .textContent;
+                    tabla += "</td><td>";
+                    tabla += animal[i].getElementsByTagName("patas")[0]
+                        .textContent;
+                    tabla += "</td></tr>";
+                }
+                document.getElementById("demo").innerHTML = tabla;
+            }
+        </script>
+    </body>
+</html>
