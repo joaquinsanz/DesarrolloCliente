@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(inicio);
+            function inicio(){
+                //Selectores
+                    $("p") // seleccionar los elementos por su etiqueta
+                    $("#primero") //seleccionar elementos por id
+                    $(".importante") // seleccionar elementos por clase
+                   // $("a[target='_blank']") // seleccionar elementos por pseudo selectores
+
+                    //Guardar una seleccion en una variable
+                    var parrafos = $("p"); //Guarda los elementos en el momento
+
+                    // EVENTOS
+                    $("p").mouseover(function(){
+                        $(this).css("color", "red");
+                    });
+                    $("p").mouseout(function(){
+                        $(this).css("color", "black");
+                    });
+                    $("p#primero").click(function(){
+                       alert("Has pulsado el primer párrafo");
+                    });
+                    $("p.importante").click(function(){
+                        $(this).hide();
+                    });
+
+            }
+    </script>
+</head>
+<body>
+    <p id="primero"> Párrafo 1</p>
+    <br>
+    <p>Párrafo 2</p>
+    <br>
+    <p class="importante">Párrafo 3</p>
+</body>
+</html>
